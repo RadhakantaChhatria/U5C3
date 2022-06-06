@@ -78,7 +78,7 @@ app.post("/votes/vote/:user", (req, res) => {
       t.name == user ? { ...t, votes: 1 } : t
     );
 
-    
+
     fs.writeFile("./db.json", JSON.stringify(parsed), "utf-8", () => {
       res.send("user voted");
     });
@@ -86,7 +86,7 @@ app.post("/votes/vote/:user", (req, res) => {
 });
 
 
-app.get("/db", (req, res) => {
+app.post("/db", (req, res) => {
     fs.readFile("./db.json", "utf-8", (err, data) => {
         const parsed = JSON.parse(data);
         parsed.users = [...parsed.users, req.body];
@@ -98,8 +98,10 @@ app.get("/db", (req, res) => {
 })
 
 
-app.post("/db", (req, res) => {
-    fs.readFile("./db.json", "utf-8", (err, data))
+app.get("/db", (req, res) => {
+    fs.readFile("./db.json", "utf-8", (err, data)=>{
+        res.send(data)
+    })
 })
 
 
