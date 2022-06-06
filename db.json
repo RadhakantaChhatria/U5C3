@@ -1,3 +1,4 @@
+
 {
     "users": [
       {
@@ -8,6 +9,7 @@
         "password": "1234",
         "age": 15
       },
+
       {
         "id": 2,
         "name": "Jack Boss",
@@ -16,6 +18,7 @@
         "party": "partyA",
         "age": 15
       },
+
       {
         "id": 3,
         "name": "Jenna",
@@ -24,6 +27,7 @@
         "party": "partyB",
         "age": 15
       },
+
       {
         "id": 4,
         "name": "Jerald jr",
@@ -32,6 +36,7 @@
         "password": "1234",
         "age": 15
       },
+
       {
         "id": 8,
         "name": "Obama Doe",
@@ -41,6 +46,7 @@
         "age": 15,
         "token": 0.873132604494884
       },
+      
       {
           "id":9,
           "name": "Donald Trump",

@@ -28,6 +28,7 @@ app.post("/user/login", (req, res) => {
       .send(`{ status: "please provide username and password" }`);
   }
 
+
   fs.readFile("./db.json", "utf-8", (err, data) => {
     const parsed = JSON.parse(data);
     parsed.users = parsed.users.map((el) =>
@@ -35,6 +36,7 @@ app.post("/user/login", (req, res) => {
         ? { ...el, token: Math.random() }
         : el
     );
+
 
     fs.writeFile("./db.json", JSON.stringify(parsed), "utf-8", () => {
       res.status(201).send("login successful");
@@ -46,6 +48,7 @@ app.post("/user/login", (req, res) => {
 app.post("/user/logout", (req, res) => {
   res.send("user logged out successfully");
 });
+
 
 app.get("/votes/party/:party", (req, res) => {
   const { party } = req.params;
@@ -66,6 +69,7 @@ app.get("/votes/voters", (req, res) => {
   });
 });
 
+
 app.post("/votes/vote/:user", (req, res) => {
   const { user } = req.params;
   fs.readFile("./db.json", "utf-8", (err, data) => {
@@ -74,6 +78,7 @@ app.post("/votes/vote/:user", (req, res) => {
       t.name == user ? { ...t, votes: 1 } : t
     );
 
+    
     fs.writeFile("./db.json", JSON.stringify(parsed), "utf-8", () => {
       res.send("user voted");
     });
@@ -96,6 +101,8 @@ app.get("/db", (req, res) => {
 app.post("/db", (req, res) => {
     fs.readFile("./db.json", "utf-8", (err, data))
 })
+
+
 
 
 app.listen(8080);
